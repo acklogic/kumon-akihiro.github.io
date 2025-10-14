@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公文祥博 - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+        
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .skill-card h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            background: #e9ecef;
+            border-left-width: 8px;
+        }
+        
+        .company-name {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .period {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .role {
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .achievement {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .certification {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            section {
+                padding: 25px;
+            }
+            
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>公文 祥博</h1>
+            <p class="subtitle">Engineer / PM / Manager</p>
+            <div class="summary">
+                <p>20年以上のキャリアを持つエンジニア・PM・マネージャー。PHP/Python/TypeScript等を中心としたWebアプリケーション開発から、データ基盤構築、AIシステム開発まで幅広く担当。特にソーシャルゲーム領域において、累計ユーザー400万超のサービスをPM/ディレクターとして年間売上100億円規模まで成長させた実績を持つ。近年はGCPを活用したクラウドアーキテクチャ設計、データ分析基盤構築、AIアプリケーション構築、チームマネジメントを中心に活動。</p>
+            </div>
+        </header>
+
+        <section>
+            <h2>コアスキル</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h4>エンジニアリング</h4>
+                    <ul>
+                        <li>20年以上のWeb開発経験</li>
+                        <li>PHP/Python/TypeScript</li>
+                        <li>Google Cloud アーキテクチャ設計</li>
+                        <li>大規模サービスのパフォーマンスチューニング</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>プロジェクトマネジメント</h4>
+                    <ul>
+                        <li>要件定義〜運用保守まで一貫推進</li>
+                        <li>年間売上100億円規模のサービス運営</li>
+                        <li>アジャイル/スクラム開発</li>
+                        <li>3〜10名以上のチームリード経験</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>マネジメント・ビジネス</h4>
+                    <ul>
+                        <li>最大14名のチームマネジメント</li>
+                        <li>プリセールス・顧客折衝</li>
+                        <li>データ/AI領域コンサルティング</li>
+                        <li>新規案件獲得実績</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>主要実績</h2>
+            
+            <div class="experience-item">
+                <div class="company-name">株式会社アソビズム - ドラゴンポーカー</div>
+                <div class="period">2013年8月 〜 2017年9月（4年2ヶ月）</div>
+                <div class="role">運用ディレクター兼サーバサイドPL</div>
+                <p>自社IPのソーシャルゲームアプリ開発・運用を統括。</p>
+                <div class="achievement">
+                    <strong>主な成果：</strong>
+                    <ul>
+                        <li>運用3ヶ月目から参画し、緊急メンテ続きの状況から立て直し</li>
+                        <li>当初の5倍以上のDAU・売上に成長（ピーク時年間売上100億円規模）</li>
+                        <li>Appleセールスランキング最高2位達成</li>
+                        <li>ファミ通アワード優秀賞受賞・登壇</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">BigQuery</span>
+                    <span class="tech-tag">Unity</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="company-name">ジーアイクラウド株式会社</div>
+                <div class="period">2021年1月 〜 2024年4月（3年4ヶ月）</div>
+                <div class="role">開発部シニアマネージャー</div>
+                <p>データエンジニアリング部門の統括とデータ/AI領域案件のPM。</p>
+                <ul>
+                    <li>11名のエンジニアチームをマネジメント（予実管理、評価、採用）</li>
+                    <li>社内の半数以上の新規案件問合せに対応</li>
+                    <li>データ/AI領域案件全般のプリセールス・PM</li>
+                    <li>中古販売価格予測AIシステムの開発・運用保守</li>
+                    <li>大手広告代理店・エネルギー商社のデータ分析基盤構築</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Google Cloud</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">BigQuery</span>
+                    <span class="tech-tag">Vertex AI</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="company-name">株式会社トップゲート</div>
+                <div class="period">2019年8月 〜 2020年12月（1年5ヶ月）</div>
+                <div class="role">マネージャー / PM</div>
+                <p>データエンジニアリング部門のマネジメントとプロジェクト推進。</p>
+                <ul>
+                    <li>14名のエンジニアをマネジメント</li>
+                    <li>大手ファッションSPA会社・生命保険会社のDWH構築</li>
+                    <li>MLトレンド分析システムの構築</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Google Cloud</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">BigQuery</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="company-name">株式会社グッドパッチ - Strap</div>
+                <div class="period">2025年5月 〜 現在</div>
+                <div class="role">SE（契約社員）</div>
+                <p>自社オンラインホワイトボードSaaSサービスの開発・運用。</p>
+                <ul>
+                    <li>外部MCP連携用API Gatewayの開発</li>
+                    <li>クレジットカード決済機能の導入</li>
+                    <li>運用・保守メンテナンス</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">GCP</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Firestore</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>保有資格</h2>
+            <div class="certification">Zend PHP5 Certification（2007年）</div>
+            <div class="certification">Google Cloud Professional Data Engineer（2022年）※失効中</div>
+            <div class="certification">Salesforce認定 Mulesoft デベロッパー（2024年）</div>
+        </section>
+
+        <section>
+            <h2>強み</h2>
+            <h3>ユーザー視点に立った課題解決力とサービス成長への執念</h3>
+            <p>ソーシャルゲーム運営では、緊急メンテナンス続きの厳しい状況から参画。技術的な負債対策だけでなく、ユーザーの声を徹底分析し、企画から開発・運用まで一貫して関与。当初の5倍以上の成長を実現し、年間売上100億円規模、セールスランキング最高2位を達成。</p>
+
+            <h3>変化を先読みした設計力とアーキテクチャ選定</h3>
+            <p>20年以上のキャリアを通じて、将来の変更・拡張を見越した設計を実践。AWS環境のCloudFormation化やBigQuery分析基盤構築では、3〜5年後のビジネス成長を想定したアーキテクチャを提案。技術選定では流行に流されず、保守性・拡張性・コストのバランスを重視。</p>
+
+            <h3>多様なステークホルダーを巻き込むマネジメント力</h3>
+            <p>14名のエンジニアチーム統括と並行して、社内の半数以上の新規案件対応を実施。顧客ヒアリング、BP調整、エンジニアアサインとモチベーション管理まで多岐にわたる関係者と円滑にコミュニケーション。定期的な1on1や技術共有会により、期日遵守率向上とメンバー離職率低減を実現。</p>
+
+            <h3>技術とビジネスの両輪を回す提案力</h3>
+            <p>データ/AI領域でプリセールスから参画し、「技術がどのようにビジネス価値を生むか」を重視した提案を実施。AIシステムでは精度向上だけでなく、現場の使いやすさや既存システムとの連携を設計。エンジニアとしての技術理解とPM・マネージャーとしてのビジネス視点を併せ持ち、顧客とエンジニアの橋渡し役として貢献。</p>
+        </section>
+    </div>
+</body>
+</html>
